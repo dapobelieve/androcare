@@ -24,4 +24,4 @@
 
   gtag('config', 'UA-23581568-13');
 </script>
-<script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="7e700508d0afead9016b28c0-|49" defer=""></script>
+<script src="/assets/front/js/rocket-loader.min.js" data-cf-settings="7e700508d0afead9016b28c0-|49" defer=""></script>
