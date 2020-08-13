@@ -98,8 +98,8 @@
 								<div class="services-2 d-flex">
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-first-aid-kit"></span></div>
 									<div class="text">
-										<h3>Primary Care</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<h3>ADVANCED ANDROLOGY SCREENINGS</h3>
+										{{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
 									</div>
 								</div>
 							</div>
@@ -107,8 +107,8 @@
 								<div class="services-2 d-flex">
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-dropper"></span></div>
 									<div class="text">
-										<h3>Lab Test</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<h3>FERTILITY LABORATORY SERVICES</h3>
+										{{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
 									</div>
 								</div>
 							</div>
@@ -116,8 +116,8 @@
 								<div class="services-2 d-flex">
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
 									<div class="text">
-										<h3>Symptom Check</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<h3>GENDER SELECTION</h3>
+										{{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
 									</div>
 								</div>
 							</div>
@@ -125,11 +125,12 @@
 								<div class="services-2 d-flex">
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-heart-rate"></span></div>
 									<div class="text">
-										<h3>Heart Rate</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+										<h3>IN-VITRO FERTILIZATION (IVF)</h3>
+										{{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
 									</div>
 								</div>
 							</div>
+							<p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
 						</div>
 					</div>
 				</div>
