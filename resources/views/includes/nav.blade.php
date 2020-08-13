@@ -2,7 +2,8 @@
 	<div class="container">
 		<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
 			<div class="col-lg-2 pr-4 align-items-center">
-				<a class="navbar-brand" href="index.html">Dr.<span>care</span></a>
+				{{-- <a class="navbar-brand" href="index.html">Dr.<span>care</span></a> --}}
+				<a class="navbar-brand" href="/"><img src="/assets/front/images/logo1.png" alt="" height="54"></a>
 			</div>
 			<div class="col-lg-10 d-none d-md-block">
 				<div class="row d-flex">
@@ -40,12 +41,12 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-				<li class="nav-item"><a href="doctor.html" class="nav-link">Doctor</a></li>
-				<li class="nav-item"><a href="department.html" class="nav-link">Departments</a></li>
-				<li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-				<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Doctor</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Departments</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
 			</ul>
 		</div>
 	</div>
