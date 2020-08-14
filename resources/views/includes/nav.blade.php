@@ -46,7 +46,7 @@
 				<li class="nav-item"><a href="#" class="nav-link">Departments</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+				<li class="nav-item"><a href="{{ route('andro.contact') }}" class="nav-link">Contact</a></li>
 			</ul>
 		</div>
 	</div>
