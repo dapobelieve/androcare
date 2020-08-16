@@ -3,20 +3,22 @@
 		<div class="row mb-5">
 			<div class="col-md">
 				<div class="ftco-footer-widget mb-5">
-					<h2 class="ftco-heading-2 logo">Dr.<span>care</span></h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<h2 class="ftco-heading-2 logo"><img src="/assets/front/images/logo1.png" alt="" height="54"></h2>
+					<p>We are always here to provide you with a world-class fertility treatments.</p>
 				</div>
 				<div class="ftco-footer-widget mb-5">
 					<h2 class="ftco-heading-2">Have a Questions?</h2>
 					<div class="block-23 mb-3">
 						<ul>
-							<li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+							<li><span class="icon icon-map-marker"></span><span class="text">1, Segun Adekoya Street,
+								Coker Estate, Shasha, Akowonjo
+								Lagos State, Nigeria</span>
 							</li>
 							<li>
-								<a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a>
+								<a href="#"><span class="icon icon-phone"></span><span class="text">+234 818 007 3995</span></a>
 							</li>
 							<li>
-								<a href="#"><span class="icon icon-envelope"></span><span class="text"><span class="__cf_email__" data-cfemail="dfb6b1b9b09fa6b0aaadbbb0b2beb6b1f1bcb0b2">[email&#160;protected]</span></span></a>
+								<a href="mailto:info@androcarefertilityng.org"><span class="icon icon-envelope"></span><span class="text"><span>info@androcarefertilityng.org</span></span></a>
 							</li>
 						</ul>
 					</div>
@@ -34,7 +36,7 @@
 						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
 						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
 						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
+						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Articles</a></li>
 						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
 					</ul>
 				</div>
@@ -53,7 +55,7 @@
 				<div class="ftco-footer-widget mb-5">
 					<h2 class="ftco-heading-2">Recent Blog</h2>
 					<div class="block-21 mb-4 d-flex">
-						<a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+						<a class="blog-img mr-4" style="background-image: url(/assets/front/images/image_1.jpg);"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">
@@ -64,7 +66,7 @@
 						</div>
 					</div>
 					<div class="block-21 mb-5 d-flex">
-						<a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+						<a class="blog-img mr-4" style="background-image: url(/assets/front/images/image_2.jpg);"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">
@@ -95,7 +97,7 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<p>
-				Copyright &copy;<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by Believe
 				</p>
 			</div>
 		</div>

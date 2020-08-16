@@ -2,4 +2,4 @@
 
 
 Route::get('/', 'FrontController@index')->name('andro.index');
-Route::get('/contact', 'ContactController@index')->name('andro.contact');
+Route::get('/contact', 'ContactController@create')->name('andro.contact');

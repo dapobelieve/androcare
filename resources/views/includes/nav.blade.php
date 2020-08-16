@@ -11,19 +11,21 @@
 						<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
 							<span class="icon-map"></span>
 						</div>
-						<span class="text">Address: 198 West 21th Street, Suite 721 New York NY 10016</span>
+						<span class="text">Address: 1, Segun Adekoya Street,
+							Coker Estate, Shasha, Akowonjo
+							Lagos State, Nigeria</span>
 					</div>
 					<div class="col-md pr-4 d-flex topper align-items-center">
 						<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
 							<span class="icon-paper-plane"></span>
 						</div>
-						<span class="text">Email: <a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f16001a1d0a020e06032f0a020e0603410c0002">[email&#160;protected]</a></span>
+						<span class="text">Email: <a href="mailto:info@androcarefertilityng.org"><span>info@androcarefertilityng.org</span></a></span>
 					</div>
 					<div class="col-md pr-4 d-flex topper align-items-center">
 						<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
 							<span class="icon-phone2"></span>
 						</div>
-						<span class="text">Phone: + 1235 2355 98</span>
+						<span class="text">Phone: + 234 818 007 3995</span>
 					</div>
 				</div>
 			</div>
@@ -40,12 +42,12 @@
 		</p>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
+				<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">About</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Doctor</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Departments</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Articles</a></li>
+				{{-- <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li> --}}
+				{{-- <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> --}}
 				<li class="nav-item"><a href="{{ route('andro.contact') }}" class="nav-link">Contact</a></li>
 			</ul>
 		</div>

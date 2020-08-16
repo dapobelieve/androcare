@@ -52,22 +52,24 @@
                 <div class="w-100"></div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light d-flex align-self-stretch box p-4">
-                        <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                        <p><span>Address:</span>1, Segun Adekoya Street,
+                            Coker Estate, Shasha, Akowonjo
+                            Lagos State, Nigeria</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light d-flex align-self-stretch box p-4">
-                        <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                        <p><span>Phone:</span> <a href="tel://1234567920">+234 818 007 3995</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light d-flex align-self-stretch box p-4">
-                        <p><span>Email:</span> <a href="https://colorlib.com/cdn-cgi/l/email-protection#ff96919990bf86908a8d8c968b9ad19c9092"><span class="__cf_email__" data-cfemail="0d64636b624d7462787f7e647968236e6260">[email&#160;protected]</span></a></p>
+                        <p><span>Email:</span> <a href="mailto:info@androcarefertilityng.org"><span>info@androcarefertilityng.org</span></a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light d-flex align-self-stretch box p-4">
-                        <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                        <p><span>Website</span> <a href="#">androcarefertilityng.org</a></p>
                     </div>
                 </div>
             </div>
