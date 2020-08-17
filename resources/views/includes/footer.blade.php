@@ -43,11 +43,11 @@
 				<div class="ftco-footer-widget mb-5 ml-md-4">
 					<h2 class="ftco-heading-2">Services</h2>
 					<ul class="list-unstyled">
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Neurolgy</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Dentist</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Ophthalmology</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Cardiology</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Surgery</a></li>
+						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>SPERM GENETICS</a></li>
+						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>FERTILITY LABORATORY SERVICES</a></li>
+						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>GENDER SELECTION</a></li>
+						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>IN-VITRO FERTILIZATION (IVF)</a></li>
+						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>ADVANCED ANDROLOGY SCREENINGS</a></li>
 					</ul>
 				</div>
 			</div>

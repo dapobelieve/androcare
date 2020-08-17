@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
 			<div class="col-lg-2 pr-4 align-items-center">
-				{{-- <a class="navbar-brand" href="index.html">Dr.<span>care</span></a> --}}
+				{{-- <a class="navbar-brand" href="index.html">Andro<span>care</span></a> --}}
 				<a class="navbar-brand" href="/"><img src="/assets/front/images/logo1.png" alt="" height="54"></a>
 			</div>
 			<div class="col-lg-10 d-none d-md-block">
@@ -38,12 +38,12 @@
 			<span class="oi oi-menu"></span> Menu
 		</button>
 		<p class="button-custom order-lg-last mb-0">
-			<a href="appointment.html" class="btn btn-secondary py-2 px-3">Make An Appointment</a>
+			<a href="/#section-counter" class="btn btn-secondary py-2 px-3">Make An Appointment</a>
 		</p>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="{{ route('andro.about') }}" class="nav-link">About</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Services</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Articles</a></li>
 				{{-- <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li> --}}
