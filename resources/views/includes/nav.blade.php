@@ -2,8 +2,7 @@
 	<div class="container">
 		<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
 			<div class="col-lg-2 pr-4 align-items-center">
-				{{-- <a class="navbar-brand" href="index.html">Andro<span>care</span></a> --}}
-				<a class="navbar-brand" href="/"><img src="/assets/front/images/logo1.png" alt="" height="54"></a>
+				<a class="navbar-brand" href="/"><img src="{{config('androcare.website.logo')}}" alt="" height="54"></a>
 			</div>
 			<div class="col-lg-10 d-none d-md-block">
 				<div class="row d-flex">
@@ -11,21 +10,19 @@
 						<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
 							<span class="icon-map"></span>
 						</div>
-						<span class="text">Address: 1, Segun Adekoya Street,
-							Coker Estate, Shasha, Akowonjo
-							Lagos State, Nigeria</span>
+						<span class="">Address: {{ config('androcare.website.address') }}</span>
 					</div>
 					<div class="col-md pr-4 d-flex topper align-items-center">
 						<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
 							<span class="icon-paper-plane"></span>
 						</div>
-						<span class="text">Email: <a href="mailto:info@androcarefertilityng.org"><span>info@androcarefertilityng.org</span></a></span>
+						<span class="">Email: <a href="mailto:info@androcarefertilityng.org"><span>{{ config('androcare.website.email') }}</span></a></span>
 					</div>
 					<div class="col-md pr-4 d-flex topper align-items-center">
 						<div class="icon bg-white mr-2 d-flex justify-content-center align-items-center">
 							<span class="icon-phone2"></span>
 						</div>
-						<span class="text">Phone: + 234 818 007 3995</span>
+						<span class="text">Phone: {{ config('androcare.website.phone') }}</span>
 					</div>
 				</div>
 			</div>
@@ -43,12 +40,10 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
+				<li class="nav-item"><a href="/" class="nav-link pl-0">Services</a></li>
+				<li class="nav-item"><a href="/" class="nav-link pl-0">Blog</a></li>
 				<li class="nav-item"><a href="{{ route('andro.about') }}" class="nav-link">About</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Articles</a></li>
-				{{-- <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li> --}}
-				{{-- <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> --}}
-				<li class="nav-item"><a href="{{ route('andro.contact') }}" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="{{ route('andro.contact') }}" class="nav-link">Contact</a></li>
 			</ul>
 		</div>
 	</div>
