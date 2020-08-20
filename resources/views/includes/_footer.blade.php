@@ -97,7 +97,7 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<p>
-				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by Believe
+				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved | Powered with <i class="icon-heart" aria-hidden="true"></i> by Believe
 				</p>
 			</div>
 		</div>

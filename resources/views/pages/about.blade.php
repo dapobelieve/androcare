@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.hometemplate')
 
 @section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('/assets/front/images/bg_1.jpg');" data-stellar-background-ratio="0.5">

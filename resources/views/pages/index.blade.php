@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.hometemplate')
 
 @section('content')
 	@include('includes._slider')
