@@ -41,6 +41,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
 				<li class="nav-item"><a href="/" class="nav-link pl-0">Services</a></li>
+				<li class="nav-item"><a href="/" class="nav-link pl-0">Gallery</a></li>
 				<li class="nav-item"><a href="/" class="nav-link pl-0">Blog</a></li>
 				<li class="nav-item"><a href="{{ route('andro.about') }}" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="{{ route('andro.contact') }}" class="nav-link">Contact</a></li>

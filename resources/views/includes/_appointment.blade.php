@@ -61,12 +61,12 @@
                 </form>
             </div>
             <div class="col-lg-6 p-5 bg-counter aside-stretch">
-                <h3 class="vr">About AndroCare Facts</h3>
+                <h3 class="vr">AndroCare Fertility Stats</h3>
                 <div class="row pt-4 mt-1">
                     <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 p-5 bg-light">
                             <div class="text">
-                                <strong class="number" data-number="30">0</strong>
+                                <strong class="number" data-number="20">0</strong>
                                 <span>Years of Experienced</span>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                     <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 p-5 bg-light">
                             <div class="text">
-                                <strong class="number" data-number="4500">0</strong>
+                                <strong class="number" data-number="1200">0</strong>
                                 <span>Happy Patients</span>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                     <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 p-5 bg-light">
                             <div class="text">
-                                <strong class="number" data-number="84">0</strong>
+                                <strong class="number" data-number="15">0</strong>
                                 <span>Number of Doctors</span>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                     <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 p-5 bg-light">
                             <div class="text">
-                                <strong class="number" data-number="300">0</strong>
+                                <strong class="number" data-number="150">0</strong>
                                 <span>Number of Staffs</span>
                             </div>
                         </div>
