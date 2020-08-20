@@ -44,6 +44,7 @@
 		$('.home-slider').owlCarousel({
 	    loop:true,
 	    autoplay: true,
+        autoplayTimeout: 10000,
 	    margin:0,
 	    animateOut: 'fadeOut',
 	    animateIn: 'fadeIn',
@@ -66,7 +67,6 @@
 
 		$('.carousel-testimony').owlCarousel({
 			autoplay: true,
-            // autoplaySpeed: 5000,
             autoplayTimeout: 10000,
 			center: true,
 			loop: true,
