@@ -3,29 +3,30 @@
 		<div class="row mb-5">
 			<div class="col-md">
 				<div class="ftco-footer-widget mb-5">
-					<h2 class="ftco-heading-2 logo"><img src="/assets/front/images/logo1.png" alt="" height="54"></h2>
+					<h2 class="ftco-heading-2 logo"><img src="{{config('androcare.website.logo')}}" alt="" height="54"></h2>
 					<p>We are always here to provide you with a world-class fertility treatments.</p>
 				</div>
 				<div class="ftco-footer-widget mb-5">
 					<h2 class="ftco-heading-2">Have a Questions?</h2>
 					<div class="block-23 mb-3">
 						<ul>
-							<li><span class="icon icon-map-marker"></span><span class="text">1, Segun Adekoya Street,
-								Coker Estate, Shasha, Akowonjo
-								Lagos State, Nigeria</span>
+                            <li><span class="icon icon-map-marker"></span><span class="text">
+                                   {{config('androcare.website.address')}}
+                                </span></li>
+							<li>
+								<a href="#"><span class="icon icon-phone"></span><span class="text">{{config('androcare.website.phone')}}</span></a>
 							</li>
 							<li>
-								<a href="#"><span class="icon icon-phone"></span><span class="text">+234 818 007 3995</span></a>
-							</li>
-							<li>
-								<a href="mailto:info@androcarefertilityng.org"><span class="icon icon-envelope"></span><span class="text"><span>info@androcarefertilityng.org</span></span></a>
+								<a href="mailto:info@androcarefertilityng.org"><span class="icon icon-envelope"></span><span class="text">
+                                        <span>{{config('androcare.website.email')}}</span></span></a>
 							</li>
 						</ul>
 					</div>
 					<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-						<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+						<li class="ftco-animate"><a target="_blank" href="{{config('androcare.website.socials.twitter')}}"><span class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a target="_blank" href="{{config('androcare.website.socials.facebook')}}"><span class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a target="_blank" href="{{config('androcare.website.socials.instagram')}}"><span class="icon-instagram"></span></a></li>
+						<li class="ftco-animate"><a target="_blank" href="{{config('androcare.website.socials.linkedin')}}"><span class="icon-linkedin"></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -97,7 +98,8 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<p>
-				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by Believe
+				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());
+</script> All rights reserved | Built with <i class="icon-heart" aria-hidden="true"></i> by Believe
 				</p>
 			</div>
 		</div>
