@@ -1,6 +1,11 @@
 @extends('layouts.home-template')
 
+@section('site.title')
+    <title>Home | Androcare Fertility Nigeria </title>
+@stop
+
 @section('content')
+
 	@include('includes._slider')
 
 	@include('includes._services')
