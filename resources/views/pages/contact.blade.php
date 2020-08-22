@@ -1,13 +1,17 @@
 @extends('layouts.home-template')
 
+@section('site.title')
+    <title>Contact Us ☎️ | Androcare Fertility Nigeria </title>
+@stop
+
 @section('content')
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/rohing/image/upload/v1598068083/androcare/assets/contact-andro.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Contact Us</h1>
+                    <h1 class="mb-2 bread">Contact Us  ☎️️</h1>
                     <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
                 </div>
             </div>

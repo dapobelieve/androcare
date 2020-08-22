@@ -7,90 +7,47 @@
 @section('site.styles')
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
 	<style>
-		.gallery-block{
+		.gallery-block.grid-gallery{
 			padding-bottom: 60px;
 			padding-top: 60px;
 		}
 
-		.gallery-block .heading{
+		.gallery-block.grid-gallery .heading{
 			margin-bottom: 50px;
 			text-align: center;
 		}
 
-		.gallery-block .heading h2{
+		.gallery-block.grid-gallery .heading h2{
 			font-weight: bold;
 			font-size: 1.4rem;
 			text-transform: uppercase;
 		}
 
-		.gallery-block.compact-gallery .item{
-			height: 360px;
-			width: 270px;
-			overflow: hidden;
-			margin-bottom: 0;
-			background: black;
-			opacity: 1;
+		.gallery-block.grid-gallery a:hover{
+			opacity: 0.8;
 		}
 
-		.gallery-block.compact-gallery .item .image{
-			height: 360px;
-			width: 270px;
+		.gallery-block.grid-gallery .item img{
 			object-fit: cover;
-			transition: 0.8s ease;
-		}
-
-		.gallery-block.compact-gallery .item .info{
-			position: relative;
-			display: inline-block;
-		}
-
-		.gallery-block.compact-gallery .item .description{
-			display: grid;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			color: #fff;
-			padding: 10px;
-			font-size: 17px;
-			line-height: 18px;
+			height: 100%;
 			width: 100%;
-			padding-top: 15px;
-			padding-bottom: 15px;
-			opacity: 1;
-			color: #fff;
-			transition: 0.8s ease;
-			text-align: center;
-			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-			background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.39));
+			box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+			transition: 0.4s;
 		}
 
-		.gallery-block.compact-gallery .item .description .description-heading{
-			font-size: 1em;
-			font-weight: bold;
-		}
-
-		.gallery-block.compact-gallery .item .description .description-body{
-			font-size: 0.8em;
-			margin-top: 10px;
-			font-weight: 300;
+		.gallery-block.grid-gallery .item{
+			height: 270px;
+			width: 360px;
+			margin-bottom: 20px;
 		}
 
 		@media (min-width: 576px) {
 
-			.gallery-block.compact-gallery .item .description {
-				opacity: 0;
-			}
-
-			.gallery-block.compact-gallery .item a:hover .description {
-				opacity: 1;
-			}
-
-			.gallery-block .zoom-on-hover:hover .image {
-				transform: scale(1.3);
-				opacity: 0.7;
+			.gallery-block.grid-gallery .scale-on-hover:hover{
+				transform: scale(1.05);
+				box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
 			}
 		}
-
 	</style>
 @stop
 
@@ -115,19 +72,16 @@
 		$img2 = 'https://res.cloudinary.com/rohing/image/upload/v1587700139/photo-1542393545-10f5cde2c810_zvvwje.jpg';
 	@endphp
 
-	<section class="gallery-block compact-gallery">
+	<section class="gallery-block grid-gallery">
 		<div class="container">
-			<div class="row no-gutters">
-				@for($i = 0; $i < 1; $i++)
-				<div class="col-md-6 col-lg-4 item zoom-on-hover">
-					<a class="lightbox" href="{{ $i % 2 == 0 ? $img1 : $img2 }}">
-						<img class="img-fluid image" src="{{ $i % 2 == 0 ? $img1 : $img2 }}">
-						<span class="description">
-							<span class="description-heading">Wyclef Jean</span>
-							<span class="description-body">I'm tryna have some dinner with dome candle lights</span>
-						</span>
-					</a>
-				</div>
+			<div class="row">
+				@for($i = 0; $i < 10; $i++)
+					<div class="col-md-6 col-lg-3 item">
+						<a class="lightbox" href="{{ $i % 2 == 0 ? $img1 : $img2 }}">
+							<img class="img-fluid image scale-on-hover"
+									 src="{{ $i % 2 == 0 ? $img1 : $img2 }}">
+						</a>
+					</div>
 				@endfor
 			</div>
 		</div>
@@ -137,6 +91,6 @@
 @section('site.scripts')
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
 	<script>
-      baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
+      baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
 	</script>
 @stop

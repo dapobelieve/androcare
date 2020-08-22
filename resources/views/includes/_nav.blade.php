@@ -40,10 +40,10 @@
 		</p>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item {{Request::is('/') ? 'active' : ''}}"><a href="/" class="nav-link pl-0">Home</a></li>
+				<li class="nav-item {{Request::is('/') ? 'active' : ''}}"><a href="{{route('andro.home')}}" class="nav-link pl-0">Home</a></li>
 				<li class="nav-item {{Request::is('services*') ? 'active' : ''}}"><a href="{{route('andro.services')}}" class="nav-link pl-0">Services</a></li>
 				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>
-				<li class="nav-item {{Request::is('blog*') ? 'active' : ''}}"><a href="/" class="nav-link pl-0">Blog</a></li>
+				<li class="nav-item {{Request::is('article*') ? 'active' : ''}}"><a href="{{route('andro.article')}}" class="nav-link pl-0">Article</a></li>
 				<li class="nav-item {{Request::is('about') ? 'active' : ''}}"><a href="{{ route('andro.about') }}" class="nav-link">About</a></li>
                 <li class="nav-item {{Request::is('contact*') ? 'active' : ''}}"><a href="{{ route('andro.contact') }}" class="nav-link">Contact</a></li>
 			</ul>
