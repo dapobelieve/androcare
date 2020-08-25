@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->uuid('id')->primary();
             $table->string('name')->unique();
             $table->text('body');
-            $table->text('richBody');
+            $table->longText('richBody');
             $table->string('slug');
             $table->timestamps();
             $table->softDeletes();

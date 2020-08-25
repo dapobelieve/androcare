@@ -1922,7 +1922,7 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mixins_Uploader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/mixins/Uploader */ "./resources/js/mixins/Uploader.vue");
+/* harmony import */ var _mixins_UploadMixin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/mixins/UploadMixin.js */ "./resources/js/mixins/UploadMixin.js");
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill */ "./node_modules/quill/dist/quill.js");
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -1979,18 +1979,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "service-create",
-  mixins: ["Uploader"],
+  mixins: [_mixins_UploadMixin_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
+      image: null,
       form: {},
       editor: ""
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     var options = {
       // debug: "info",
       placeholder: "Be as descriptive as possible, give all details of this service",
@@ -2020,29 +2038,120 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
     this.editor = new quill__WEBPACK_IMPORTED_MODULE_2___default.a(this.$refs.editor, options);
+    this.editor.getModule('toolbar').addHandler('image', function () {
+      _this.imageHandler();
+    });
   },
   methods: {
-    submit: function submit() {
-      var _this = this;
+    imageHandler: function imageHandler() {
+      var _this2 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var input;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _this.form.richBody = _this.$refs.editor.innerHTML;
-                _this.form.body = _this.$refs.editor.innerText;
+                input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.click();
+                input.onchange = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+                  var file, res, range;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          file = input.files[0];
 
-                if (typeof _this.form.title == "undefined" || _this.form.article_normal_text == "") {
-                  alert("Please fill all fields");
-                }
+                          if (!/^image\//.test(file.type)) {
+                            _context.next = 9;
+                            break;
+                          }
 
-              case 3:
+                          _context.next = 4;
+                          return _this2.uploadFile(file, "androcare/editor");
+
+                        case 4:
+                          res = _context.sent;
+                          //insert to editor
+                          range = _this2.editor.getSelection();
+
+                          _this2.editor.insertEmbed(range.index, 'image', res.secure_url);
+
+                          _context.next = 10;
+                          break;
+
+                        case 9:
+                          console.warn('You can only upload images');
+
+                        case 10:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                }));
+
+              case 4:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
+      }))();
+    },
+    saveEditorImageToCloud: function saveEditorImageToCloud() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    submit: function submit() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _this3.form.richBody = _this3.$refs.editor.innerHTML;
+                _this3.form.body = _this3.$refs.editor.innerText; // if (typeof this.form.title == "undefined" || this.form.body == "" || this.form.image == "") {
+                // 	alert ("Please fill all fields")
+                // }
+                // if image has already been uploaded and some error occured
+
+                if (!(typeof _this3.form.imageData == 'undefined')) {
+                  _context4.next = 6;
+                  break;
+                }
+
+                _context4.next = 5;
+                return _this3.uploadFile(_this3.image, "androcare/service");
+
+              case 5:
+                _this3.form.imageData = _context4.sent;
+
+              case 6:
+                _context4.next = 8;
+                return axios.post('api/service', _this3.form);
+
+              case 8:
+                res = _context4.sent;
+
+              case 9:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   }
@@ -2131,112 +2240,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "home"
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/mixins/Uploader.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/mixins/Uploader.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
-/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
-/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      cloudinary: {
-        name: "lms-edc"
-      },
-      dropzoneOptions: {
-        url: "https://api.lms.com/upload",
-        thumbnailWidth: 100,
-        thumbnailHeight: 100,
-        maxFilesize: 2,
-        uploadMultiple: false,
-        addRemoveLinks: true,
-        autoProcessQueue: false,
-        headers: {
-          "My-Awesome-Header": "header value"
-        }
-      }
-    };
-  },
-  methods: {
-    uploadFile: function uploadFile(file) {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var formData, endpoint, res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                formData = new FormData();
-                formData.append("file", file);
-                formData.append("upload_preset", "xqsyhkma");
-                endpoint = "https://api.cloudinary.com/v1_1/".concat(_this.cloudinary.name, "/image/upload");
-                _context.prev = 4;
-                _context.next = 7;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(endpoint, formData, {
-                  headers: {
-                    "content-type": "multipart/form-data"
-                  }
-                });
-
-              case 7:
-                res = _context.sent;
-
-                if (!(res.status == 200)) {
-                  _context.next = 10;
-                  break;
-                }
-
-                return _context.abrupt("return", res.data.secure_url);
-
-              case 10:
-                _context.next = 15;
-                break;
-
-              case 12:
-                _context.prev = 12;
-                _context.t0 = _context["catch"](4);
-                console.log(_context.t0);
-
-              case 15:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[4, 12]]);
-      }))();
-    },
-    getStrippedText: function getStrippedText(input) {
-      return input.replace(/(<([^>]+)>)/gi, "");
-    }
-  },
-  components: {
-    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default.a
-  }
 });
 
 /***/ }),
@@ -17725,16 +17728,70 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", {
                       ref: "editor",
-                      staticStyle: { height: "500px" }
+                      staticStyle: { height: "600px" }
                     })
                   ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group has-success" },
+                    [
+                      _c("label", { staticClass: "control-label" }, [
+                        _vm._v("Service Display Image")
+                      ]),
+                      _vm._v(" "),
+                      _c("vue-dropzone", {
+                        ref: "myVueDropzone",
+                        attrs: { id: "dropzone", options: _vm.dropzoneOptions },
+                        on: {
+                          "vdropzone-drag-drop": function($event) {
+                            _vm.image = $event
+                          },
+                          "vdropzone-file-added": function($event) {
+                            _vm.image = $event
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ])
               ])
             ]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
-            _vm._m(1)
+            _c("div", { staticClass: "form-actions" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.submit($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-check" }),
+                    _vm._v("\n                  Save\n                ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-dark", attrs: { type: "button" } },
+                  [_vm._v("Cancel")]
+                )
+              ])
+            ])
           ])
         ])
       ])
@@ -17749,29 +17806,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header bg-info" }, [
       _c("h4", { staticClass: "mb-0 text-white" }, [
         _vm._v("Add a new service")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-actions" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-success", attrs: { type: "submit" } },
-          [
-            _c("i", { staticClass: "fa fa-check" }),
-            _vm._v("\n                  Save\n                ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-dark", attrs: { type: "button" } },
-          [_vm._v("Cancel")]
-        )
       ])
     ])
   }
@@ -30155,7 +30189,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.baseURL = '/';
+window.axios.defaults.baseURL = 'http://localhost:8001/';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -30310,53 +30344,119 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/mixins/Uploader.vue":
-/*!******************************************!*\
-  !*** ./resources/js/mixins/Uploader.vue ***!
-  \******************************************/
+/***/ "./resources/js/mixins/UploadMixin.js":
+/*!********************************************!*\
+  !*** ./resources/js/mixins/UploadMixin.js ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Uploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Uploader.vue?vue&type=script&lang=js& */ "./resources/js/mixins/Uploader.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
 
-/* normalize component */
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      cloudinary: {
+        name: "rohing"
+      },
+      dropzoneOptions: {
+        url: "https://api.lms.com/upload",
+        thumbnailWidth: 100,
+        thumbnailHeight: 100,
+        maxFilesize: 3,
+        uploadMultiple: false,
+        addRemoveLinks: true,
+        maxFiles: 1,
+        acceptedFiles: 'image/*',
+        autoProcessQueue: false,
+        headers: {
+          "My-Awesome-Header": "header value"
+        }
+      }
+    };
+  },
+  methods: {
+    uploadFile: function uploadFile(file) {
+      var _arguments = arguments,
+          _this = this;
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  _Uploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var folder, formData, endpoint, res, _res$data, secure_url, public_id;
 
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/mixins/Uploader.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                folder = _arguments.length > 1 && _arguments[1] !== undefined ? _arguments[1] : 'androcare';
+                formData = new FormData();
+                formData.append("file", file);
+                formData.append("upload_preset", "default_preset");
+                formData.append("folder", folder);
+                endpoint = "https://api.cloudinary.com/v1_1/".concat(_this.cloudinary.name, "/image/upload");
+                _context.prev = 6;
+                _context.next = 9;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(endpoint, formData, {
+                  headers: {
+                    "content-type": "multipart/form-data"
+                  }
+                });
 
-/***/ }),
+              case 9:
+                res = _context.sent;
 
-/***/ "./resources/js/mixins/Uploader.vue?vue&type=script&lang=js&":
-/*!*******************************************************************!*\
-  !*** ./resources/js/mixins/Uploader.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+                if (!(res.status == 200)) {
+                  _context.next = 15;
+                  break;
+                }
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Uploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Uploader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/mixins/Uploader.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Uploader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+                _res$data = res.data, secure_url = _res$data.secure_url, public_id = _res$data.public_id;
+                return _context.abrupt("return", {
+                  secure_url: secure_url,
+                  public_id: public_id
+                });
+
+              case 15:
+                return _context.abrupt("return", false);
+
+              case 16:
+                _context.next = 21;
+                break;
+
+              case 18:
+                _context.prev = 18;
+                _context.t0 = _context["catch"](6);
+                console.log(_context.t0);
+
+              case 21:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[6, 18]]);
+      }))();
+    }
+  },
+  components: {
+    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_1___default.a
+  }
+});
 
 /***/ }),
 

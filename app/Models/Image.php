@@ -9,6 +9,8 @@ class Image extends Model
 {
     use UsesUUID;
 
+    protected $guarded = [];
+
 		public function imageable()
 		{
 			return $this->morphTo();
