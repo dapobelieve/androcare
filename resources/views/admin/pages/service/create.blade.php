@@ -7,5 +7,5 @@
 @stop
 
 @section('admin-content')
-	<service-create />
+	<service-create redirect="{{url('dashboard/services')}}"></service-create>
 @stop

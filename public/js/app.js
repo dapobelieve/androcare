@@ -1998,10 +1998,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "service-create",
+  props: ['redirect'],
   mixins: [_mixins_UploadMixin_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
       image: null,
+      btn: {
+        state: false
+      },
       form: {},
       editor: ""
     };
@@ -2010,7 +2014,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this = this;
 
     var options = {
-      // debug: "info",
       placeholder: "Be as descriptive as possible, give all details of this service",
       theme: "snow",
       modules: {
@@ -2100,58 +2103,59 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    saveEditorImageToCloud: function saveEditorImageToCloud() {
+    submit: function submit() {
+      var _this3 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                _this3.btn.state = true;
+                _this3.form.richBody = _this3.$refs.editor.innerHTML;
+                _this3.form.body = _this3.$refs.editor.innerText;
+
+                if (typeof _this3.form.title == "undefined" || _this3.form.body == "" || _this3.form.image == "") {
+                  alert("Please fill all fields");
+                  _this3.btn.state = false;
+                } // if image has already been uploaded and some error occured
+
+
+                if (!(typeof _this3.form.imageData == 'undefined')) {
+                  _context3.next = 8;
+                  break;
+                }
+
+                _context3.next = 7;
+                return _this3.uploadFile(_this3.image, "androcare/services");
+
+              case 7:
+                _this3.form.imageData = _context3.sent;
+
+              case 8:
+                if (!(_this3.form.imageData !== false)) {
+                  _context3.next = 13;
+                  break;
+                }
+
+                _context3.next = 11;
+                return axios.post('api/service', _this3.form);
+
+              case 11:
+                res = _context3.sent;
+
+                if (res.status == 201) {
+                  alert("Service created successfully");
+                  window.location.replace("".concat(_this3.redirect, "?create=true"));
+                }
+
+              case 13:
               case "end":
                 return _context3.stop();
             }
           }
         }, _callee3);
-      }))();
-    },
-    submit: function submit() {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _this3.form.richBody = _this3.$refs.editor.innerHTML;
-                _this3.form.body = _this3.$refs.editor.innerText; // if (typeof this.form.title == "undefined" || this.form.body == "" || this.form.image == "") {
-                // 	alert ("Please fill all fields")
-                // }
-                // if image has already been uploaded and some error occured
-
-                if (!(typeof _this3.form.imageData == 'undefined')) {
-                  _context4.next = 6;
-                  break;
-                }
-
-                _context4.next = 5;
-                return _this3.uploadFile(_this3.image, "androcare/service");
-
-              case 5:
-                _this3.form.imageData = _context4.sent;
-
-              case 6:
-                _context4.next = 8;
-                return axios.post('api/service', _this3.form);
-
-              case 8:
-                res = _context4.sent;
-
-              case 9:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4);
       }))();
     }
   }
@@ -2206,40 +2210,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home"
+  name: "home",
+  methods: {
+    getAll: function getAll() {}
+  },
+  mounted: function mounted() {
+    this.getAll();
+  }
 });
 
 /***/ }),
@@ -17771,7 +17749,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-success",
-                    attrs: { type: "submit" },
+                    attrs: { disabled: _vm.btn.state, type: "submit" },
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -17842,11 +17820,10 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-12" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [_vm._v("Basic Table")]),
+            _c("h4", { staticClass: "card-title" }, [_vm._v("Services")]),
             _vm._v(" "),
             _c("h6", { staticClass: "card-subtitle" }, [
-              _vm._v("Add class "),
-              _c("code", [_vm._v(".table")])
+              _vm._v("All services you offer")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "table-responsive mt-3" }, [
@@ -17855,7 +17832,7 @@ var staticRenderFns = [
                   _c("tr", [
                     _c("th", [_vm._v("#")]),
                     _vm._v(" "),
-                    _c("th", [_vm._v("First Name")]),
+                    _c("th", [_vm._v("Service")]),
                     _vm._v(" "),
                     _c("th", [_vm._v("Last Name")]),
                     _vm._v(" "),
@@ -17876,88 +17853,12 @@ var staticRenderFns = [
                     _c("td", [_vm._v("@Genelia")]),
                     _vm._v(" "),
                     _c("td", [
+                      _c("span", { staticClass: "label label-success" }, [
+                        _c("a", { attrs: { href: "" } }, [_vm._v("Edit")])
+                      ]),
+                      _vm._v(" "),
                       _c("span", { staticClass: "label label-danger" }, [
-                        _vm._v("admin")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("2")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Deshmukh")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Gaylord")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("@Ritesh")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "label label-info" }, [
-                        _vm._v("member")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("3")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Sanghani")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Gusikowski")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("@Govinda")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "label label-warning" }, [
-                        _vm._v("developer")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("4")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Roshan")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Rogahn")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("@Hritik")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "label label-success" }, [
-                        _vm._v("supporter")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("5")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Doe")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Hickle")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("@Maruti")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "label label-info" }, [
-                        _vm._v("member")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("6")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Nigam")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Eichmann")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("@Sonu")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("span", { staticClass: "label label-success" }, [
-                        _vm._v("supporter")
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("Delete")])
                       ])
                     ])
                   ])

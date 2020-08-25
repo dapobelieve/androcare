@@ -48,7 +48,7 @@
             <hr>
             <div class="form-actions">
               <div class="card-body">
-                <button @click.prevent="submit" type="submit" class="btn btn-success"><i class="fa fa-check"></i>
+                <button :disabled="btn.state" @click.prevent="submit" type="submit" class="btn btn-success"><i class="fa fa-check"></i>
                   Save
                 </button>
                 <button type="button" class="btn btn-dark">Cancel</button>
@@ -66,17 +66,20 @@ import UploadMixin  from "@/mixins/UploadMixin.js";
 import Quill from "quill";
 export default {
   name: "service-create",
+  props: ['redirect'],
   mixins: [UploadMixin],
   data() {
     return {
     	image: null,
+      btn: {
+    		state: false
+      },
     	form: {},
       editor: "",
     }
   },
   mounted () {
     let options = {
-      // debug: "info",
       placeholder: "Be as descriptive as possible, give all details of this service",
       theme: "snow",
       modules: {
@@ -119,25 +122,26 @@ export default {
         }
       }
     },
-    async saveEditorImageToCloud() {
-
-    },
 		async submit() {
+  		this.btn.state = true
 			this.form.richBody = this.$refs.editor.innerHTML;
 			this.form.body = this.$refs.editor.innerText;
-			// if (typeof this.form.title == "undefined" || this.form.body == "" || this.form.image == "") {
-			// 	alert ("Please fill all fields")
-      // }
-
+			if (typeof this.form.title == "undefined" || this.form.body == "" || this.form.image == "") {
+				alert ("Please fill all fields")
+				this.btn.state = false
+      }
       // if image has already been uploaded and some error occured
 			if(typeof(this.form.imageData) == 'undefined') {
-				this.form.imageData = await this.uploadFile(this.image, "androcare/service")
+				this.form.imageData = await this.uploadFile(this.image, "androcare/services")
       }
-      // delete this.form.image
 
-      // if(!this.form.imageData) {
+      if(this.form.imageData !== false) {
 				let res = await axios.post('api/service', this.form)
-      // }
+        if(res.status == 201) {
+        	alert("Service created successfully")
+					window.location.replace(`${this.redirect}?create=true`)
+        }
+      }
 		},
 	}
 }

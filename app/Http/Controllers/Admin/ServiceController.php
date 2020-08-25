@@ -24,16 +24,15 @@ class ServiceController extends Controller
 
 			$image = new Image;
 
+    	//if imageData exists, save it
 			if($request->has('imageData')) {
 				$image->public_id = $request->imageData['public_id'];
 				$image->url = $request->imageData['secure_url'];
 				$service->images()->save($image);
 			}
 
-    	//if imageData exists, save it
-
     	return response()->json([
     		'data' => $service
-			]);
+			], 201);
 		}
 }

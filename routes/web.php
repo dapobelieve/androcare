@@ -16,7 +16,7 @@ Auth::routes();
 /*
  * Dashboard Routes
  */
-Route::prefix('/ad-admin')->group(function () {
+Route::prefix('/dashboard')->group(function () {
 
 	Route::view('/', 'admin.pages.index')->name('admin.home');
 
