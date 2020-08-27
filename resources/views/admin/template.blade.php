@@ -55,16 +55,16 @@
 		<div class="page-breadcrumb">
 			<div class="row">
 				<div class="col-7 align-self-center">
-					<div class="d-flex align-items-center">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="index.html" class="link">Home</a>
-								</li>
-								<li class="breadcrumb-item active" aria-current="page">Dashboard 1</li>
-							</ol>
-						</nav>
-					</div>
+{{--					<div class="d-flex align-items-center">--}}
+{{--						<nav aria-label="breadcrumb">--}}
+{{--							<ol class="breadcrumb">--}}
+{{--								<li class="breadcrumb-item">--}}
+{{--									<a href="index.html" class="link">Home</a>--}}
+{{--								</li>--}}
+{{--								<li class="breadcrumb-item active" aria-current="page">Dashboard 1</li>--}}
+{{--							</ol>--}}
+{{--						</nav>--}}
+{{--					</div>--}}
 					<h4 class="page-title">@yield('admin.page')</h4>
 				</div>
 			</div>

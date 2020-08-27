@@ -14,10 +14,10 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('title', 100);
             $table->text('body');
-            $table->text('richeBody');
+            $table->text('richBody');
             $table->string('slug');
             //category
 						// tags

@@ -1,7 +1,8 @@
 @extends('layouts.home-template')
 
-@section('site.title')
+@section('site.meta')
     <title>Welcome to Androcare Fertility Nigeria </title>
+    <meta name="description" content="Androcare Fertility Nigeria | Best Fertility Clinic In Lagos &#124; Androcare Fertility Center">
 @stop
 
 @section('content')

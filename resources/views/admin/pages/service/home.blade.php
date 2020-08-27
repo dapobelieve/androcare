@@ -1,5 +1,5 @@
 @extends('admin.template')
 
 @section('admin-content')
-	<service-index />
+	<service-index edit-url="{{url('dashboard/services/edit')}}" />
 @stop

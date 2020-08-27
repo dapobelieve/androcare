@@ -1,10 +1,9 @@
 <template>
   <div class="row">
     <div class="col-lg-12">
-<!--      v-if="Object.entries(form).length > 0"-->
       <div class="card">
         <div class="card-header bg-info">
-          <h4 class="mb-0 text-white">Edit service</h4>
+          <h4 class="mb-0 text-white">Edit article</h4>
         </div>
         <form action="#">
           <div class="form-body">
@@ -12,8 +11,8 @@
               <div class="row pt-3">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="control-label">Service Name:</label>
-                    <input v-model="form.name" type="text" id="firstName" class="form-control" placeholder="GENDER SELECTION, SPERM BANKING etc">
+                    <label class="control-label">Title:</label>
+                    <input v-model="form.title" type="text" id="firstName" class="form-control" placeholder="">
                     <small class="form-control-feedback"></small>
                   </div>
                 </div>
@@ -75,14 +74,14 @@
 	import UploadMixin  from "@/mixins/UploadMixin.js";
 	import Quill from "quill";
 	export default {
-		name: "service-edit",
+		name: "article-edit",
 		props: ['redirect', 'model'],
 		mixins: [UploadMixin],
 		data() {
 			return {
 				image: null,
-        uploadNewImage: false,
-        prevImage: null,
+				uploadNewImage: false,
+				prevImage: null,
 				btn: {
 					state: false
 				},
@@ -92,7 +91,7 @@
 		},
 		mounted () {
 			let options = {
-				placeholder: "Be as descriptive as possible, give all details of this service",
+				placeholder: "",
 				theme: "snow",
 				modules: {
 					toolbar: {
@@ -118,17 +117,17 @@
 		methods: {
 			async getModel() {
 				try {
-					let res = await axios.get(`api/service/${this.model}`);
-					let { id, name, body, images, richBody } = res.data.data
-          this.form = { id, name, body, images, richBody }
-          this.editor.clipboard.dangerouslyPasteHTML(richBody)
+					let res = await axios.get(`api/article/${this.model}`);
+					let { id, title, body, images, richBody } = res.data.data
+					this.form = { id, title, body, images, richBody }
+					this.editor.clipboard.dangerouslyPasteHTML(richBody)
 					if(images.length > 0) {
 						this.prevImage = images[0].url
 					}
-        }catch (err) {
-          throw new Error(err)
+				}catch (err) {
+					throw new Error(err)
 				}
-      },
+			},
 			async imageHandler() {
 				const input = document.createElement('input')
 				input.setAttribute('type', 'file')
@@ -148,36 +147,36 @@
 				}
 			},
 			async processForm() {
-				this.btn.state = true
+				// this.btn.state = true
 				this.form.richBody = this.$refs.editor.innerHTML;
 				this.form.body = this.$refs.editor.innerText;
 
-				if (typeof this.form.name == "undefined" || this.form.body === "") {
+				if (typeof this.form.title == "undefined" || this.form.body === "") {
 					alert ("Please fill all fields")
-					this.btn.state = false
+					// this.btn.state = false
 				}
 
 				// if image has already been uploaded and some error occurred
 				if(this.image !== null && typeof(this.form.imageData) == 'undefined') {
-					this.form.imageData = await this.uploadFile(this.image, "androcare/services")
+					this.form.imageData = await this.uploadFile(this.image, "androcare/articles")
 				}
 
 				this.update()
 			},
-      async update() {
-				let res = await axios.put(`api/service/${this.form.id}`, this.form)
-        console.log(res)
+			async update() {
+				let res = await axios.put(`api/article/${this.form.id}`, this.form)
+				console.log(res)
 				if(res.status == 204) {
-					alert("Service updated successfully")
+					alert("Article updated successfully")
 					window.location.replace(`${this.redirect}?edit=true`)
 				}
-      }
+			}
 		},
 	}
 </script>
 
 <style scoped>
-.ql-editor {
-  font-size: 18px !important;
-}
+  .ql-editor {
+    font-size: 18px !important;
+  }
 </style>
