@@ -76,7 +76,7 @@
 				ele.style.objectFit = "cover";
 			});
 
-			// remove wrong editor div
+			// remove wrong editor divs
 			let divs = document.querySelectorAll(".ql-clipboard, .ql-tooltip")
 			divs.forEach(el => {
 				el.remove();
