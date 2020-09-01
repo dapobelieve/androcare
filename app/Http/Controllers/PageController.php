@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -21,5 +22,15 @@ class PageController extends Controller
 		public function serviceDetails(Service $service)
 		{
 			return view('pages.service-details', ['service' => $service]);
+		}
+
+		public function articles()
+		{
+			return view('pages.articles');
+		}
+
+		public function articleDetails(Article $article)
+		{
+			return view('pages.article-details', ['article' => $article]);
 		}
 }

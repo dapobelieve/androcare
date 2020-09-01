@@ -1,6 +1,6 @@
 @extends('layouts.home-template')
 
-@section('site.title')
+@section('site.meta')
 	<title>Gallery 📸 | Androcare Fertility Nigeria </title>
 @stop
 
@@ -52,16 +52,14 @@
 @stop
 
 @section('content')
-
-	<section class="hero-wrap hero-wrap-2" style="background-image: url('/assets/front/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/rohing/image/upload/v1598859099/androcare/assets/photo-1500051638674-ff996a0ec29e.jpg');" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<h1 class="mb-2 bread">Gallery 📸</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home<i class="ion-ios-arrow-forward"></i></a></span>
-						<span>Gallery <i class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2">Enjoy some beautiful moments from out Patients, Doctors, Nurses and other members of staff</span>
 					</p>
 				</div>
 			</div>

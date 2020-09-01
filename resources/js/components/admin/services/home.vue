@@ -57,6 +57,7 @@ export default {
     }
   },
   mounted() {
+  	// alert("loaded")
   	this.getAll()
 	}
 }

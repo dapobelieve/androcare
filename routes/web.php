@@ -1,5 +1,4 @@
 <?php
-
 Route::get('/', 'PageController@index')->name('andro.home');
 
 Route::prefix('/services')->group(function () {
@@ -8,16 +7,16 @@ Route::prefix('/services')->group(function () {
 });
 
 Route::prefix('/articles')->group(function () {
-	Route::view('/', 'pages.article')->name('andro.article');
-	Route::view('/details', 'pages.article-details')->name('andro.article.detaiils');
+	Route::get('/', 'PageController@articles')->name('andro.articles');
+	Route::get('/{article}', 'PageController@articleDetails')->name('andro.article.detaiils');
 });
 
 Route::view('/gallery', 'pages.gallery')->name('andro.gallery');
+
 Route::get('/contact', 'ContactController@create')->name('andro.contact');
 Route::get('/about', 'AboutController@index')->name('andro.about');
 
 Auth::routes();
-
 
 
 /*
@@ -37,6 +36,12 @@ Route::prefix('/dashboard')->group(function () {
 		Route::view('/', 'admin.pages.articles.home')->name('admin.articles');
 		Route::view('/create', 'admin.pages.articles.create')->name('admin.article.create');
 		Route::view('/edit/{slug}', 'admin.pages.articles.edit')->name('admin.article.edit');
+	});
+
+	Route::prefix('/gallery')->group(function () {
+		Route::view('/', 'admin.pages.gallery.home')->name('admin.gallery');
+		Route::view('/create', 'admin.pages.gallery.create')->name('admin.gallery.create');
+		Route::view('/edit/{id}', 'admin.pages.gallery.edit')->name('admin.gallery.edit');
 	});
 
 });

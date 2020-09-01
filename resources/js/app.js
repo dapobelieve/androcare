@@ -16,7 +16,12 @@ Vue.component('articleIndex', require('./components/admin/articles/home.vue').de
 Vue.component('articleCreate', require('./components/admin/articles/create.vue').default);
 Vue.component('articleEdit', require('./components/admin/articles/edit.vue').default);
 
-
+/**
+ * Gallery
+ */
+Vue.component('galaIndex', require('./components/admin/gallery/home').default);
+Vue.component('galaCreate', require('./components/admin/gallery/create').default);
+Vue.component('galaEdit', require('./components/admin/gallery/edit').default);
 
 const app = new Vue({
     el: '#app',

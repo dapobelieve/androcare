@@ -17,3 +17,9 @@ Route::get('articles', 'Admin\ArticleController@get');
 Route::get('article/{article}', 'Admin\ArticleController@edit');
 Route::put('article/{article}', 'Admin\ArticleController@update');
 Route::delete('article/{article}', 'Admin\ArticleController@delete');
+
+
+/*
+ * Gallery
+ */
+//Route::

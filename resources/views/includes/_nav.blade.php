@@ -43,7 +43,7 @@
 				<li class="nav-item {{Request::is('/') ? 'active' : ''}}"><a href="{{route('andro.home')}}" class="nav-link pl-0">Home</a></li>
 				<li class="nav-item {{Request::is('services*') ? 'active' : ''}}"><a href="{{route('andro.services')}}" class="nav-link pl-0">Services</a></li>
 				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>
-				<li class="nav-item {{Request::is('article*') ? 'active' : ''}}"><a href="{{route('andro.article')}}" class="nav-link pl-0">Articles</a></li>
+				<li class="nav-item {{Request::is('article*') ? 'active' : ''}}"><a href="{{route('andro.articles')}}" class="nav-link pl-0">Articles</a></li>
 				<li class="nav-item {{Request::is('about') ? 'active' : ''}}"><a href="{{ route('andro.about') }}" class="nav-link">About Us</a></li>
                 <li class="nav-item {{Request::is('contact*') ? 'active' : ''}}"><a href="{{ route('andro.contact') }}" class="nav-link">Contact Us</a></li>
 			</ul>

@@ -1,12 +1,12 @@
 @extends('layouts.home-template')
 
-@section('site.title')
+@section('site.meta')
     <title>Services | Androcare Fertility Nigeria </title>
     <meta name="robots" content="index, follow">
 @stop
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('/assets/front/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/rohing/image/upload/v1598859895/androcare/assets/photo-1532187863486-abf9dbad1b69.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">

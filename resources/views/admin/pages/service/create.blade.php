@@ -1,6 +1,6 @@
 @extends('admin.template')
 
-@section('admin.page', 'Services')
+@section('admin.page', 'Create a new Service')
 
 @section('admin.styles')
 	<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">

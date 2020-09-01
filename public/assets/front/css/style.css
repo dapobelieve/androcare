@@ -13300,7 +13300,7 @@ textarea.form-control {
 }
 
 .text-shadow-4-blue {
-    text-shadow: 1px 1px 0px #4c4c4c
+    text-shadow: rgba(0, 0, 0, 0.9)
 }
 
 .shadow-1 {

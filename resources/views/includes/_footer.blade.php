@@ -54,29 +54,20 @@
 			</div>
 			<div class="col-md">
 				<div class="ftco-footer-widget mb-5">
-					<h2 class="ftco-heading-2">Recent Blog</h2>
-					<div class="block-21 mb-4 d-flex">
-						<a class="blog-img mr-4" style="background-image: url(/assets/front/images/image_1.jpg);"></a>
+					<h2 class="ftco-heading-2">Recent Articles</h2>
+					@foreach($articles->slice(0, 2) as $article)
+						<div class="block-21 mb-4 d-flex">
+						<a class="blog-img mr-4" style="background-image: url({{$article->mainImage()}});"></a>
 						<div class="text">
-							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+							<h3 class="heading"><a href="{{route('andro.article.detaiils', ['article' => $article->slug])}}">{{$article->title}}</a></h3>
 							<div class="meta">
-								<div><a href="#"><span class="icon-calendar"></span> Dec 25, 2018</a></div>
-								<div><a href="#"><span class="icon-person"></span> Admin</a></div>
-								<div><a href="#"><span class="icon-chat"></span> 19</a></div>
+								<div><a href="{{route('andro.article.detaiils', ['article' => $article->slug])}}"><span class="icon-calendar"></span> {{$article->formattedDate('day', 'shortMonthName', 'year')['month']}} {{$article->formattedDate()['day']}}, {{$article->formattedDate()['year']}}</a></div>
+								<div><a href="{{route('andro.article.detaiils', ['article' => $article->slug])}}"><span class="icon-person"></span> Admin</a></div>
+{{--								<div><a href="#"><span class="icon-chat"></span> 19</a></div>--}}
 							</div>
 						</div>
 					</div>
-					<div class="block-21 mb-5 d-flex">
-						<a class="blog-img mr-4" style="background-image: url(/assets/front/images/image_2.jpg);"></a>
-						<div class="text">
-							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-							<div class="meta">
-								<div><a href="#"><span class="icon-calendar"></span> Dec 25, 2018</a></div>
-								<div><a href="#"><span class="icon-person"></span> Admin</a></div>
-								<div><a href="#"><span class="icon-chat"></span> 19</a></div>
-							</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 			<div class="col-md">
