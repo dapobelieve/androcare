@@ -22,7 +22,7 @@ Auth::routes();
 /*
  * Dashboard Routes
  */
-Route::prefix('/dashboard')->group(function () {
+Route::middleware('auth')->prefix('/dashboard')->group(function () {
 
 	Route::view('/', 'admin.pages.index')->name('admin.home');
 
