@@ -1,10 +1,9 @@
 <?php
 
-
 return [
     'website' => [
     		'name' => 'Androcare Fertility Hospital',
-        'phone' => '07069494803',
+        'phone' => '08180073995',
         'email' => 'info@androcarefertilityng.org',
 				'url' => 'https://androcarefertilityng.org/',
         'address' => '1, Segun Adekoya Street, Coker Estate, Shasha, Akowonjo	Lagos',

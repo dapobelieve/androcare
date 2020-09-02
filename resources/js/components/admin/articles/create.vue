@@ -136,7 +136,7 @@
 					let res = await axios.post('api/article', this.form)
 					if(res.status == 201) {
 						alert("Service created successfully")
-						window.location.replace(`${this.redirect}?create=true`)
+						window.location.replace(`${this.redirect}`)
 					}
 				}
 			},

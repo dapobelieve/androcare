@@ -22,4 +22,5 @@ Route::delete('article/{article}', 'Admin\ArticleController@delete');
 /*
  * Gallery
  */
-//Route::
+Route::get('gallery', 'Admin\GalleryController@get');
+Route::post('gallery', 'Admin\GalleryController@post');

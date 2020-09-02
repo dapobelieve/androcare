@@ -2144,7 +2144,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 if (res.status == 201) {
                   alert("Service created successfully");
-                  window.location.replace("".concat(_this3.redirect, "?create=true"));
+                  window.location.replace("".concat(_this3.redirect));
                 }
 
               case 13:
@@ -2629,6 +2629,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
 //
 //
 //
@@ -2675,14 +2678,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mixins: [_mixins_UploadMixin_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['homeurl'],
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       uploads: [],
       dragging: false,
-      draggingCount: 0,
-      btn: {
-        state: false
-      }
-    };
+      errors: false,
+      draggingCount: 0
+    }, _defineProperty(_ref, "errors", {}), _defineProperty(_ref, "btn", {
+      state: false
+    }), _ref;
   },
   methods: {
     imagePreview: function imagePreview(file) {
@@ -2719,8 +2724,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       this.uploads.map(function (item) {
+        // this.errors = true
         if (item.caption === "") {
-          _this2.uploads[_this2.uploads.indexOf(item)].error = "Enter a caption for this image " + item.file.name;
+          _this2.errors[item.file.name] = "Enter a caption for this image " + item.file.name;
+
+          _this2.$forceUpdate();
         }
       });
       return;
@@ -2729,12 +2737,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _iterator, _step, file;
+        var _iterator, _step, x, res;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this3.errors = {};
                 _this3.btn.state = true;
 
                 if (_this3.uploads.length === 0) {
@@ -2744,24 +2753,73 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this3.validateUploads();
 
-                _iterator = _createForOfIteratorHelper(_this3.uploads);
-
-                try {
-                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                    file = _step.value;
-                  }
-                } catch (err) {
-                  _iterator.e(err);
-                } finally {
-                  _iterator.f();
+                if (!(Object.keys(_this3.errors).length > 0)) {
+                  _context.next = 8;
+                  break;
                 }
 
-              case 5:
+                return _context.abrupt("return");
+
+              case 8:
+                _iterator = _createForOfIteratorHelper(_this3.uploads);
+                _context.prev = 9;
+
+                _iterator.s();
+
+              case 11:
+                if ((_step = _iterator.n()).done) {
+                  _context.next = 18;
+                  break;
+                }
+
+                x = _step.value;
+                _context.next = 15;
+                return _this3.uploadFile(x.file, 'androcare/gallery');
+
+              case 15:
+                _this3.uploads[_this3.uploads.indexOf(x)].url = _context.sent;
+
+              case 16:
+                _context.next = 11;
+                break;
+
+              case 18:
+                _context.next = 23;
+                break;
+
+              case 20:
+                _context.prev = 20;
+                _context.t0 = _context["catch"](9);
+
+                _iterator.e(_context.t0);
+
+              case 23:
+                _context.prev = 23;
+
+                _iterator.f();
+
+                return _context.finish(23);
+
+              case 26:
+                _context.next = 28;
+                return axios.post('/api/gallery', {
+                  data: _this3.uploads
+                });
+
+              case 28:
+                res = _context.sent;
+
+                if (res.status === 201) {
+                  alert("Images saved to gallery successfully");
+                  window.location.replace("".concat(_this3.homeurl));
+                }
+
+              case 30:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, null, [[9, 20, 23, 26]]);
       }))();
     }
   }
@@ -2778,6 +2836,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
 //
 //
 //
@@ -2813,12 +2882,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['create'],
   data: function data() {
-    return {};
+    return {
+      gallery: []
+    };
   },
   methods: {
+    getAll: function getAll() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('api/gallery');
+
+              case 2:
+                res = _context.sent;
+                _this.gallery = res.data.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    deleteImage: function deleteImage(image) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!confirm("Are you sure you want to delete this image")) {
+                  _context2.next = 4;
+                  break;
+                }
+
+                _context2.next = 3;
+                return axios["delete"]("gallery/".concat(image.id));
+
+              case 3:
+                res = _context2.sent;
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
     go: function go() {
       window.location.replace("".concat(this.create));
     }
+  },
+  created: function created() {
+    this.getAll();
   }
 });
 
@@ -19719,7 +19843,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._l(_vm.uploads, function(upload) {
+            _vm._l(_vm.uploads, function(upload, index) {
               return _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "d-flex align-items-center" }, [
                   _c("div", { staticClass: "upload-img" }, [
@@ -19728,40 +19852,43 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "uplaod-name ml-5" }, [
+                  _c("div", { staticClass: "upload-name ml-5" }, [
                     _c(
                       "div",
-                      {
-                        staticClass: "d-flex align-items-center",
-                        staticStyle: { width: "1000px", height: "30px" }
-                      },
+                      { staticStyle: { width: "1000px", height: "30px" } },
                       [
-                        _vm._v("\n            Caption: "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: upload.caption,
-                              expression: "upload.caption"
-                            }
-                          ],
-                          staticClass: "w-50 ml-2",
-                          attrs: { type: "text" },
-                          domProps: { value: upload.caption },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                        _c("div", [
+                          _vm._v("Caption: "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: upload.caption,
+                                expression: "upload.caption"
                               }
-                              _vm.$set(upload, "caption", $event.target.value)
+                            ],
+                            staticClass: "w-50 ml-2",
+                            attrs: { type: "text" },
+                            domProps: { value: upload.caption },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(upload, "caption", $event.target.value)
+                              }
                             }
-                          }
-                        }),
+                          })
+                        ]),
                         _vm._v(" "),
-                        _c("small", { staticStyle: { color: "red" } }, [
-                          _vm._v(_vm._s(upload.error))
-                        ])
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm.errors[upload.file.name]
+                          ? _c("small", { staticStyle: { color: "red" } }, [
+                              _vm._v(_vm._s(_vm.errors[upload.file.name]))
+                            ])
+                          : _vm._e()
                       ]
                     )
                   ]),
@@ -19853,10 +19980,54 @@ var render = function() {
     _c(
       "div",
       { staticClass: "row el-element-overlay" },
-      _vm._l(12, function(x) {
-        return _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-          _vm._m(0, true)
-        ])
+      _vm._l(_vm.gallery, function(x) {
+        return _vm.gallery.length > 0
+          ? _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "el-card-item" }, [
+                  _c("div", { staticClass: "el-card-avatar el-overlay-1" }, [
+                    _c("img", {
+                      staticStyle: {
+                        height: "300px",
+                        width: "300px",
+                        "object-fit": "cover"
+                      },
+                      attrs: { src: x.images[0]["url"], alt: "user" }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "el-overlay" }, [
+                      _c("ul", { staticClass: "list-style-none el-info" }, [
+                        _vm._m(0, true),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "el-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn default btn-outline el-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.deleteImage(x)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "el-card-content" }, [
+                    _c("span", { staticClass: "text-muted" }, [
+                      _vm._v(_vm._s(x.caption))
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          : _vm._e()
       }),
       0
     )
@@ -19867,49 +20038,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "el-card-item" }, [
-        _c("div", { staticClass: "el-card-avatar el-overlay-1" }, [
-          _c("img", {
-            attrs: {
-              src:
-                "https://res.cloudinary.com/rohing/image/upload/v1585572497/harley-davidson-1HZcJjdtc9g-unsplash_vwslej.jpg",
-              alt: "user"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "el-overlay" }, [
-            _c("ul", { staticClass: "list-style-none el-info" }, [
-              _c("li", { staticClass: "el-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "btn default btn-outline image-popup-vertical-fit el-link",
-                    attrs: { href: "javascript:void(0);" }
-                  },
-                  [_c("i", { staticClass: "fas fa-edit" })]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "el-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn default btn-outline el-link",
-                    attrs: { href: "javascript:void(0);" }
-                  },
-                  [_c("i", { staticClass: "fas fa-trash-alt" })]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "el-card-content" }, [
-          _c("span", { staticClass: "text-muted" }, [_vm._v("Caption 1")])
-        ])
-      ])
+    return _c("li", { staticClass: "el-item" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "btn default btn-outline image-popup-vertical-fit el-link",
+          attrs: { href: "javascript:void(0);" }
+        },
+        [_c("i", { staticClass: "fas fa-edit" })]
+      )
     ])
   }
 ]

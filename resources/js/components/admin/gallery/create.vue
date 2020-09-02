@@ -19,13 +19,14 @@
       <div>
         {{uploads.length}} items selected
       </div>
-      <div v-for="upload in uploads" class="card">
+      <div v-for="(upload, index) in uploads" class="card">
         <div class="d-flex align-items-center">
           <div class="upload-img"><img :src="imagePreview(upload.file)" alt=""></div>
-          <div class="uplaod-name ml-5">
-            <div class="d-flex align-items-center" style="width: 1000px; height: 30px">
-              Caption: <input class="w-50 ml-2" type="text" v-model="upload.caption">
-              <small style="color: red">{{upload.error}}</small>
+          <div class="upload-name ml-5">
+            <div style="width: 1000px; height: 30px">
+              <div>Caption: <input class="w-50 ml-2" type="text" v-model="upload.caption"></div>
+              <br>
+              <small v-if="errors[upload.file.name]" style="color: red">{{errors[upload.file.name]}}</small>
             </div>
           </div>
           <div @click="removeFile(upload)" style="cursor: pointer" class="ml-auto mr-4"><i class="fas fa-trash"></i></div>
@@ -48,7 +49,9 @@ export default {
     return {
       uploads: [],
       dragging: false,
+      errors: false,
       draggingCount: 0,
+      errors: {},
       btn: {
       	state: false
       }
@@ -86,13 +89,16 @@ export default {
 		},
     validateUploads() {
   		this.uploads.map(item => {
-  			if(item.caption === "") {
-  				this.uploads[this.uploads.indexOf(item)].error = "Enter a caption for this image "+item.file.name
+				// this.errors = true
+  			if (item.caption === "") {
+          this.errors[item.file.name] = "Enter a caption for this image "+item.file.name
+          this.$forceUpdate()
         }
       })
       return
     },
     async submit() {
+  		this.errors = {}
       this.btn.state = true
 
       if (this.uploads.length === 0) {
@@ -100,10 +106,20 @@ export default {
         this.btn.state = false
       }
 
-			this.validateUploads()
+	    this.validateUploads()
 
-      for (const file of this.uploads) {
+      if (Object.keys(this.errors).length > 0) {
+      	return
+      }else {
+      	for (const x of this.uploads) {
+      		this.uploads[this.uploads.indexOf(x)].url = await this.uploadFile(x.file, 'androcare/gallery')
+        }
 
+      	let res = await axios.post('/api/gallery', { data: this.uploads })
+        if(res.status === 201) {
+					alert("Images saved to gallery successfully")
+					window.location.replace(`${this.homeurl}`)
+        }
       }
     },
   }
