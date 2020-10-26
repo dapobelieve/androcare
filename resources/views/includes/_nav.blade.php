@@ -1,6 +1,6 @@
 <nav class="navbar py-4 navbar-expand-lg ftco_navbar navbar-light bg-light flex-row">
-	<div class="container">
-		<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+	<div class="container d-flex justify-content-center">
+		<div class="row no-gutters d-flex align-items-center px-3 px-md-0">
 			<div class="col-lg-2 pr-4 align-items-center">
 				<a class="navbar-brand" href="/"><img src="{{config('androcare.website.logo')}}" alt="" height="54"></a>
 			</div>
@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container d-flex align-items-center">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		<button onclick="toggleMenu()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="oi oi-menu"></span> Menu
 		</button>
 		<p class="button-custom order-lg-last mb-0">
@@ -41,11 +41,11 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item {{Request::is('/') ? 'active' : ''}}"><a href="{{route('andro.home')}}" class="nav-link pl-0">Home</a></li>
-				<li class="nav-item {{Request::is('services*') ? 'active' : ''}}"><a href="{{route('andro.services')}}" class="nav-link pl-0">Services</a></li>
-				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>
+				<li class="nav-item {{Request::is('services*') ? 'active' : ''}}"><a href="{{route('andro.services')}}" class="nav-link pl-0">Treatments</a></li>
 				<li class="nav-item {{Request::is('article*') ? 'active' : ''}}"><a href="{{route('andro.articles')}}" class="nav-link pl-0">Articles</a></li>
+				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>
 				<li class="nav-item {{Request::is('about') ? 'active' : ''}}"><a href="{{ route('andro.about') }}" class="nav-link">About Us</a></li>
-                <li class="nav-item {{Request::is('contact*') ? 'active' : ''}}"><a href="{{ route('andro.contact') }}" class="nav-link">Contact Us</a></li>
+				<li class="nav-item {{Request::is('contact*') ? 'active' : ''}}"><a href="{{ route('andro.contact') }}" class="nav-link">Contact Us</a></li>
 			</ul>
 		</div>
 	</div>

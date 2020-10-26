@@ -24,7 +24,7 @@
                 <div class="col-md-12">
                   <div class="form-group has-success">
                     <label class="control-label">Service Details</label>
-                    <div style="height: 600px" ref="editor"></div>
+                    <div style="color: #000; height: 600px" ref="editor"></div>
 <!--                    <small class="form-control-feedback"> Select your gender</small>-->
                   </div>
                 </div>
@@ -93,6 +93,7 @@ export default {
             [{ list: "ordered" }, { list: "bullet" }],
             [{ script: "sub" }, { script: "super" }],
             [{ indent: "-1" }, { indent: "+1" }],
+						[{ 'color': [] }],
           ],
         },
       },

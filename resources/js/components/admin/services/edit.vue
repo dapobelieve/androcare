@@ -166,7 +166,6 @@
 			},
       async update() {
 				let res = await axios.put(`api/service/${this.form.id}`, this.form)
-        console.log(res)
 				if(res.status == 204) {
 					alert("Service updated successfully")
 					window.location.replace(`${this.redirect}?edit=true`)

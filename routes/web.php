@@ -1,7 +1,7 @@
 <?php
 Route::get('/', 'PageController@index')->name('andro.home');
 
-Route::prefix('/services')->group(function () {
+Route::prefix('/treatments')->group(function () {
 	Route::get('/', 'PageController@services')->name('andro.services');
 	Route::get('/{service}', 'PageController@serviceDetails')->name('andro.service.details');
 });
@@ -11,7 +11,7 @@ Route::prefix('/articles')->group(function () {
 	Route::get('/{article}', 'PageController@articleDetails')->name('andro.article.detaiils');
 });
 
-Route::view('/gallery', 'pages.gallery')->name('andro.gallery');
+Route::get('/gallery', 'PageController@gallery')->name('andro.gallery');
 
 Route::get('/contact', 'ContactController@create')->name('andro.contact');
 Route::get('/about', 'AboutController@index')->name('andro.about');
@@ -42,6 +42,10 @@ Route::middleware('auth')->prefix('/dashboard')->group(function () {
 		Route::view('/', 'admin.pages.gallery.home')->name('admin.gallery');
 		Route::view('/create', 'admin.pages.gallery.create')->name('admin.gallery.create');
 		Route::view('/edit/{id}', 'admin.pages.gallery.edit')->name('admin.gallery.edit');
+	});
+
+	Route::prefix('/appointments')->group(function() {
+		Route::view('/', 'admin.pages.appointments.home')->name('admin.appointment');
 	});
 
 });

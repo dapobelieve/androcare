@@ -2702,7 +2702,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var files = e.target.files;
       var arr = Array.from(files).map(function (file) {
         return {
-          caption: "",
+          caption: file.name,
           file: file
         };
       });
@@ -2897,7 +2897,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/gallery');
+                return window.axios.get('api/gallery');
 
               case 2:
                 res = _context.sent;
@@ -3073,6 +3073,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             indent: "-1"
           }, {
             indent: "+1"
+          }], [{
+            'color': []
           }]]
         }
       }
@@ -3506,14 +3508,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 res = _context5.sent;
-                console.log(res);
 
                 if (res.status == 204) {
                   alert("Service updated successfully");
                   window.location.replace("".concat(_this5.redirect, "?edit=true"));
                 }
 
-              case 5:
+              case 4:
               case "end":
                 return _context5.stop();
             }
@@ -19869,7 +19870,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "w-50 ml-2",
-                            attrs: { type: "text" },
+                            attrs: {
+                              placeholder:
+                                "Enter caption for " + upload.file.name,
+                              type: "text"
+                            },
                             domProps: { value: upload.caption },
                             on: {
                               input: function($event) {
@@ -20127,7 +20132,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", {
                       ref: "editor",
-                      staticStyle: { height: "600px" }
+                      staticStyle: { color: "#000", height: "600px" }
                     })
                   ])
                 ])
@@ -32767,7 +32772,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.baseURL = 'http://localhost:8001/';
+window.axios.defaults.baseURL = "http://androcarefertilityng.org/";
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

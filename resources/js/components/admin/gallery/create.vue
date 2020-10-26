@@ -24,7 +24,7 @@
           <div class="upload-img"><img :src="imagePreview(upload.file)" alt=""></div>
           <div class="upload-name ml-5">
             <div style="width: 1000px; height: 30px">
-              <div>Caption: <input class="w-50 ml-2" type="text" v-model="upload.caption"></div>
+              <div>Caption: <input class="w-50 ml-2" :placeholder="`Enter caption for ${upload.file.name}`" type="text" v-model="upload.caption"></div>
               <br>
               <small v-if="errors[upload.file.name]" style="color: red">{{errors[upload.file.name]}}</small>
             </div>
@@ -68,7 +68,7 @@ export default {
   		let files = e.target.files
 		  let arr = Array.from(files).map(file => {
 				return {
-					caption: "",
+					caption: file.name,
 					file
 				}
 			})

@@ -12,7 +12,6 @@
     <link href="/admin/dist-assets/css/plugins/perfect-scrollbar.min.css" rel="stylesheet" />
     @yield('styles')
 </head>
-
 <body class="text-left">
     <div class="app-admin-wrap layout-sidebar-large">
         <div class="main-header">

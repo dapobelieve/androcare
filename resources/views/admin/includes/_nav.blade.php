@@ -11,6 +11,13 @@
 					</a>
 				</li>
 				<li class="sidebar-item">
+					<a class="sidebar-link waves-effect waves-dark" href="{{route('admin.appointment')}}"
+						 aria-expanded="false">
+						<i data-feather="mail" class="mr-2"></i>
+						<span class="hide-menu">Appointments</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
 					<a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
 						 aria-expanded="false">
 						<i data-feather="align-justify" class="mr-2"></i>

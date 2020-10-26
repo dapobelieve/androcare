@@ -73,14 +73,14 @@
 	<section class="gallery-block grid-gallery">
 		<div class="container">
 			<div class="row">
-				@for($i = 0; $i < 10; $i++)
+				@foreach($images as $image)
 					<div class="col-md-6 col-lg-3 item">
-						<a class="lightbox" href="{{ $i % 2 == 0 ? $img1 : $img2 }}">
+						<a class="lightbox" href="{{$image->mainImage()}}">
 							<img class="img-fluid image scale-on-hover"
-									 src="{{ $i % 2 == 0 ? $img1 : $img2 }}">
+									 src="{{$image->mainImage()}}">
 						</a>
 					</div>
-				@endfor
+				@endforeach
 			</div>
 		</div>
 	</section>

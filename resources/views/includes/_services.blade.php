@@ -74,7 +74,6 @@
                                 <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-first-aid-kit"></span></div>
                                 <div class="text">
                                     <h3>ADVANCED ANDROLOGY SCREENINGS</h3>
-                                    {{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -84,7 +83,6 @@
                                 <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-dropper"></span></div>
                                 <div class="text">
                                     <h3>FERTILITY LABORATORY SERVICES</h3>
-                                    {{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -94,7 +92,6 @@
                                 <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
                                 <div class="text">
                                     <h3>GENDER SELECTION</h3>
-                                    {{-- <p>Far far away, behind the word mountains, far from the countries Vokalia.</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -108,7 +105,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                        <p class="mb-0"><a href="{{route('andro.about')}}" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
                     </div>
                 </div>
             </div>

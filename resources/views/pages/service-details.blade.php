@@ -10,7 +10,7 @@
 	<meta property="og:url" content="{{url()->current()}}" />
 	<meta property="og:site_name" content="{{config('androcare.website.name')}}" />
 
-	<meta name="twitter:title" content="{{ $service->name }}">
+	<meta name="twitter:title" content="{{ $service->name }} | {{config('androcare.website.name')}} ">
 	<meta name="twitter:description" content="{{$service->body}}">
 	<meta name="twitter:image" content="{{$service->mainImage()}}">
 	<meta name="twitter:site" content="{{config('androcare.website.name')}}">
@@ -19,7 +19,7 @@
 
 @section('content')
 
-	<section class="hero-wrap hero-wrap-2" style="background-image: url('https://res.cloudinary.com/rohing/image/upload/v1598067280/androcare/assets/photo-1558980663-3685c1d673c4.jpg');" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2" style="background-image: url({{$service->mainImage()}});" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -35,6 +35,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 ftco-animate">
+
 					<h2 class="mb-3">{{ ucwords($service->name) }}</h2>
 
 					{!! $service->richBody !!}

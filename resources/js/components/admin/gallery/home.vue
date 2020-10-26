@@ -43,7 +43,7 @@ export default {
   },
   methods: {
 		async getAll() {
-			let res = await axios.get('api/gallery');
+			let res = await window.axios.get('api/gallery');
 			this.gallery = res.data.data
     },
     async deleteImage (image) {

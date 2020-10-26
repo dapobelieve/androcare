@@ -1,4 +1,5 @@
-<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter"
+         style="background-image: url(/assets/front/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 py-5 pr-md-5">
@@ -21,13 +22,15 @@
                             <div class="form-field">
                                 <div class="select-wrap">
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <select name="" id="" class="form-control">
+                                    <select name="" id="category" class="form-control">
                                         <option value="">Select Your Services</option>
-                                        <option value="">Neurology</option>
+                                        <option value="">General Practice</option>
                                         <option value="">Cardiology</option>
-                                        <option value="">Dental</option>
-                                        <option value="">Ophthalmology</option>
-                                        <option value="">Other Services</option>
+                                        <option value="">Pediatrics</option>
+                                        <option value="">Diabetes Care</option>
+                                        <option value="">Pre-Natal Care</option>
+                                        <option value="">Ultrasound Electrocardiogram</option>
+                                        <option value="">Sports Physicals</option>
                                     </select>
                                 </div>
                             </div>
@@ -52,7 +55,7 @@
                     </div>
                     <div class="d-md-flex">
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
+                            <textarea name="" id="message" cols="30" rows="10" class="form-control" placeholder="Message"></textarea>
                         </div>
                         <div class="form-group ml-md-4">
                             <input type="submit" value="Appointment" class="btn btn-secondary py-3 px-4">

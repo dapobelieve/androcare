@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
                 <div class="col-md-12 text ftco-animate">
-                    <h1 class="mb-4"><span style="color: #ff7600; ">Welcome to </span></h1>
-                    <h1 class="mb-4 text-shadow-4-blue">Androcare Fertility Hospital</h1>
-                    <h3 class="subheading text-white">Committed ourselves to offering a wide range of treatments</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+{{--                    <h1 class="mb-4"><span style="color: #ff7600; ">Welcome to </span></h1>--}}
+                    <h1 style="color: #ff7600; " class="mb-4 text-shadow-4-blue">Androcare Fertility Hospital</h1>
+                    <h3 class="subheading text-white">We have Committed ourselves to offering a wide range of treatments with particular emphasis on issues related to female conception. At our advanced IVF facility, we are dedicated to helping you and your family.</h3>
+                    <p><a href="{{route('andro.about')}}" class="btn btn-secondary px-4 py-3 mt-3">About <Us></Us></a></p>
                 </div>
             </div>
         </div>
@@ -17,9 +17,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
                 <div class="col-md-12 text ftco-animate">
-                    <h1 class="mb-4">We Care About Your Health</h1>
+                    <h1 style="color: #ff7600; " class="mb-4">We Care About Your Health</h1>
                     <h3 class="subheading text-white">Your Health is Our Top Priority with Comprehensive & Affordable medical </h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
                 </div>
             </div>
         </div>
@@ -29,9 +28,9 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
                 <div class="col-md-12 text ftco-animate">
-                    <h1 class="mb-4 text-shadow-4-blue">Best in the Game</h1>
+                    <h1 style="color: #ff7600; " class="mb-4 text-shadow-4-blue">Best in the Game</h1>
                     <h3 class="subheading text-white">Our commitment, skills and compassion are unparalleled in the fertility industry</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+                    <p><a href="{{ route('andro.services') }}" class="btn btn-sm btn-secondary px-4 py-3 mt-3">View our services</a></p>
                 </div>
             </div>
         </div>

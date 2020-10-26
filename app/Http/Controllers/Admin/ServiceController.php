@@ -10,7 +10,6 @@ use App\Models\Service;
 class ServiceController extends Controller
 {
     public function post(Request $request) {
-    	// validate inputs
 
 			//persist data
 			$service = Service::firstOrCreate([
