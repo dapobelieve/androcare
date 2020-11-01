@@ -23,9 +23,11 @@
 
 	@include('includes._services')
 
+  @include('includes._departments')
+
 	@include('includes._cta')
 
-    @include('includes._testimonial')
+  @include('includes._testimonial')
 
 	@include('includes._appointment')
 

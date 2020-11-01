@@ -41,9 +41,11 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item {{Request::is('/') ? 'active' : ''}}"><a href="{{route('andro.home')}}" class="nav-link pl-0">Home</a></li>
-				<li class="nav-item {{Request::is('services*') ? 'active' : ''}}"><a href="{{route('andro.services')}}" class="nav-link pl-0">Treatments</a></li>
+				<li class="nav-item {{Request::is('treatments*') ? 'active' : ''}}"><a href="{{route('andro.services')}}" class="nav-link pl-0">Treatments</a></li>
 				<li class="nav-item {{Request::is('article*') ? 'active' : ''}}"><a href="{{route('andro.articles')}}" class="nav-link pl-0">Articles</a></li>
 				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>
+				<li class="nav-item"><a href="#" class="nav-link pl-0">Success Stories</a></li>
+				<li class="nav-item {{Request::is('our-team*') ? 'active' : ''}}"><a href="{{route('andro.team')}}" class="nav-link pl-0">Our Team</a></li>
 				<li class="nav-item {{Request::is('about') ? 'active' : ''}}"><a href="{{ route('andro.about') }}" class="nav-link">About Us</a></li>
 				<li class="nav-item {{Request::is('contact*') ? 'active' : ''}}"><a href="{{ route('andro.contact') }}" class="nav-link">Contact Us</a></li>
 			</ul>

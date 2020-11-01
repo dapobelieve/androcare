@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Gallery;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -39,5 +40,16 @@ class PageController extends Controller
 		{
 			$images = Gallery::latest()->get();
 			return view('pages.gallery', ['images' => $images]);
+		}
+
+		public function team()
+		{
+			$team = Team::latest()->get();
+			return view('pages.team', ['team' => $team]);
+		}
+
+		public function teamDetails(Team $team)
+		{
+			return view('pages.team-details', ['member' => $team]);
 		}
 }

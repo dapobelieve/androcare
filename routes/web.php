@@ -6,6 +6,11 @@ Route::prefix('/treatments')->group(function () {
 	Route::get('/{service}', 'PageController@serviceDetails')->name('andro.service.details');
 });
 
+Route::prefix('/our-team')->group(function () {
+	Route::get('/', 'PageController@team')->name('andro.team');
+	Route::get('/{team}', 'PageController@teamDetails')->name('andro.member.details');
+});
+
 Route::prefix('/articles')->group(function () {
 	Route::get('/', 'PageController@articles')->name('andro.articles');
 	Route::get('/{article}', 'PageController@articleDetails')->name('andro.article.detaiils');
@@ -17,7 +22,6 @@ Route::get('/contact', 'ContactController@create')->name('andro.contact');
 Route::get('/about', 'AboutController@index')->name('andro.about');
 
 Auth::routes();
-
 
 /*
  * Dashboard Routes

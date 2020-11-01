@@ -25,7 +25,7 @@
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<h1 class="mb-2 bread">{{ ucwords($service->name) }}</h1>
-					<p class="breadcrumbs"><span class="mr-2"><a href="">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{{route('andro.services')}}">Services <i class="ion-ios-arrow-forward"></i></a></span> <span>{{ ucwords($service->name) }} <i class="ion-ios-arrow-forward"></i></span></p>
+					<p class="breadcrumbs"><span class="mr-2"><a href="">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{{route('andro.services')}}">Treatments <i class="ion-ios-arrow-forward"></i></a></span> <span>{{ ucwords($service->name) }} <i class="ion-ios-arrow-forward"></i></span></p>
 				</div>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 @section('site.scripts')
 <script>
 	document.onreadystatechange = () => {
-		if(document.readyState == "complete") {
+		if(document.readyState === "complete") {
 			let images = document.querySelectorAll("img");
 
 			images.forEach(ele => {
@@ -66,6 +66,7 @@
 				ele.style.width = "100%";
 				ele.style.objectFit = "cover";
 			});
+
 			// remove wrong editor divs
 			let divs = document.querySelectorAll(".ql-clipboard, .ql-tooltip")
 			divs.forEach(el => {

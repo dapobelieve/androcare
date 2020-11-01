@@ -90,8 +90,9 @@
 			<div class="col-md-12 text-center">
 				<p>
 				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());
-</script> All rights reserved | Built with <i class="icon-heart" aria-hidden="true"></i> by Believe
+</script> All rights reserved | Built with <i class="icon-heart" aria-hidden="true"></i> <a target="_blank" href="https://twitter.com/CodeDrogo">by Believe</a>
 				</p>
+
 			</div>
 		</div>
 	</div>

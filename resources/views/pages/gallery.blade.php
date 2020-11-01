@@ -59,7 +59,7 @@
 				<div class="col-md-9 ftco-animate text-center">
 					<h1 class="mb-2 bread">Gallery 📸</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2">Enjoy some beautiful moments from out Patients, Doctors, Nurses and other members of staff</span>
+						<span class="mr-2">Enjoy some beautiful pictures of our state of the art facilities and serene environment</span>
 					</p>
 				</div>
 			</div>
