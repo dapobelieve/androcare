@@ -26,7 +26,11 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
 			View::composer(
-				['pages.articles', 'includes._footer'],
+				['pages.articles', 'includes._blog', 'includes._footer'],
 				"App\Http\Views\Composers\ArticleComposer");
+
+			View::composer(
+				['includes._footer', 'includes._nav'], "App\Http\Views\Composers\TreatmentComposer"
+			);
     }
 }

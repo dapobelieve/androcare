@@ -44,12 +44,6 @@ services:
       - ./:/var/www/html
     networks:
       - laravel
-  admin:
-    image: adminer
-    networks:
-      - laravel
-    ports:
-      - "7080:8080"
   composer:
     image: composer:latest
     container_name: composer

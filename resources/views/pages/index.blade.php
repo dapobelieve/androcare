@@ -31,4 +31,6 @@
 
 	@include('includes._appointment')
 
+	@include('includes._blog')
+
 @endsection

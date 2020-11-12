@@ -44,11 +44,9 @@
 				<div class="ftco-footer-widget mb-5 ml-md-4">
 					<h2 class="ftco-heading-2">Services</h2>
 					<ul class="list-unstyled">
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>SPERM GENETICS</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>FERTILITY LABORATORY SERVICES</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>GENDER SELECTION</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>IN-VITRO FERTILIZATION (IVF)</a></li>
-						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>ADVANCED ANDROLOGY SCREENINGS</a></li>
+						@foreach($serviceTitles->slice(0, 4) as $data)
+							<li><a href="{{route('andro.service.details', ['service' => $data->slug ])}}"><span class="ion-ios-arrow-round-forward mr-2"></span>{{$data->name}}</a></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -89,7 +87,7 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<p>
-				Copyright &copy;<script type="7e700508d0afead9016b28c0-text/javascript">document.write(new Date().getFullYear());
+				Copyright &copy;<script>document.write(new Date().getFullYear());
 </script> All rights reserved | Built with <i class="icon-heart" aria-hidden="true"></i> <a target="_blank" href="https://twitter.com/CodeDrogo">by Believe</a>
 				</p>
 
