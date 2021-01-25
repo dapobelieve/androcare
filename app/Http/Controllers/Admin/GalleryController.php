@@ -43,7 +43,9 @@ class GalleryController extends Controller
 			], 400);
 		}
 
-		$gallery->delete();
+		$d = $gallery->delete();
+
+		dd($gallery);
 
 		return response()->json([
 			'message' => "Image deleted successfully"

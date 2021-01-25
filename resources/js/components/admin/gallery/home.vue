@@ -48,7 +48,9 @@ export default {
     },
     async deleteImage (image) {
 			if(confirm("Are you sure you want to delete this image")) {
-				let res = await axios.delete(`gallery/${image.id}`)
+				let res = await axios.post(`api/gallery/${image.id}`, {
+				  _method: 'DELETE'
+        })
       }
     },
 		go() {

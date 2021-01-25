@@ -2924,7 +2924,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
 
                 _context2.next = 3;
-                return axios["delete"]("gallery/".concat(image.id));
+                return axios.post("api/gallery/".concat(image.id), {
+                  _method: 'DELETE'
+                });
 
               case 3:
                 res = _context2.sent;
@@ -32772,7 +32774,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.baseURL = "http://androcarefertilityng.org/";
+window.axios.defaults.baseURL = "http://localhost:8001/";
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
