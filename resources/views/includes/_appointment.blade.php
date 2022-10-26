@@ -70,7 +70,7 @@
                         <div class="block-18 p-5 bg-light">
                             <div class="text">
                                 <strong class="number" data-number="20">0</strong>
-                                <span>Years of Experienced</span>
+                                <span>Years of Experience</span>
                             </div>
                         </div>
                     </div>

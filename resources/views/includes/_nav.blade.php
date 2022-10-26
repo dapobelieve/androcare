@@ -52,17 +52,16 @@
 					</div>
 				</li>
 				<li class="nav-item {{Request::is('article*') ? 'active' : ''}}"><a href="{{route('andro.articles')}}" class="nav-link pl-0">Articles</a></li>
-				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>
-				<li class="nav-item"><a href="#" class="nav-link pl-0">Success Stories</a></li>
+{{--				<li class="nav-item {{Request::is('gallery*') ? 'active' : ''}}"><a href="{{route('andro.gallery')}}" class="nav-link pl-0">Gallery</a></li>--}}
+				<li class="nav-item"><a href="{{ route('andro.success') }}" class="nav-link pl-0">Success Stories</a></li>
 				<li class="nav-item {{Request::is('our-team*') ? 'active' : ''}}"><a href="{{route('andro.team')}}" class="nav-link pl-0">Our Team</a></li>
 				<li class="nav-item andro-nav {{Request::is('about') ? 'active' : ''}}">
 					<a href="{{ route('andro.about') }}" class="nav-link">About Us</a>
 					<div class="sub-menu">
-							<p><a href="#">Why choose us?</a></p>
+							<p><a href="{{route('andro.why-choose-us')}}">Why choose us?</a></p>
 							<p><a target="_blank" href="https://www.youtube.com/channel/UCNDzBBe5ImJqc11DqItQRfg">Youtube Channel</a></p>
 							<p><a href="{{route('andro.team')}}">Our Team</a></p>
-							<p><a href="#">Testimonials</a></p>
-							<p><a href="#">Blog & Articles</a></p>
+							<p><a href="#">Testimonials</a></p>e
 					</div>
 				</li>
 				<li class="nav-item {{Request::is('contact*') ? 'active' : ''}}"><a href="{{ route('andro.contact') }}" class="nav-link">Contact Us</a></li>

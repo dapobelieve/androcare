@@ -16,10 +16,14 @@ Route::prefix('/articles')->group(function () {
 	Route::get('/{article}', 'PageController@articleDetails')->name('andro.article.detaiils');
 });
 
-Route::get('/gallery', 'PageController@gallery')->name('andro.gallery');
+//Route::get('/gallery', 'PageController@gallery')->name('andro.gallery');
+Route::get('/success-stories', 'PageController@successStories')->name('andro.success');
 
 Route::get('/contact', 'ContactController@create')->name('andro.contact');
 Route::get('/about', 'AboutController@index')->name('andro.about');
+Route::get('/why-choose-us', function() {
+	return view('pages.why-us');
+})->name('andro.why-choose-us');
 
 Auth::routes();
 

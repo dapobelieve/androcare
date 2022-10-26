@@ -35,8 +35,8 @@
 					<h2 class="ftco-heading-2">Links</h2>
 					<ul class="list-unstyled">
 						<li><a href="{{route('andro.home')}}"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-						<li><a href="{{route('andro.services')}}"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-						<li><a href="{{route('andro.gallery')}}"><span class="ion-ios-arrow-round-forward mr-2"></span>Gallery</a></li>
+						<li><a href="{{route('andro.about')}}"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
+{{--						<li><a href="{{route('andro.gallery')}}"><span class="ion-ios-arrow-round-forward mr-2"></span>Gallery</a></li>--}}
 						<li><a href="{{route('andro.articles')}}"><span class="ion-ios-arrow-round-forward mr-2"></span>Articles</a></li>
 						<li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
 					</ul>

@@ -10,7 +10,7 @@ class ArticleComposer
 
 	public function __construct()
 	{
-		$this->articles = Article::latest()->get();
+		$this->articles = Article::latest()->take(9)->get();
 	}
 
 	public function compose(View $view)

@@ -28,7 +28,10 @@
                 @forelse($services as $service)
                     <div class="col-md-4 ftco-animate">
                         <div class="blog-entry shadow-1">
-                            <a href="{{route('andro.service.details', ['service' => $service->slug ])}}" class="block-20" style="background-image: url({{$service->mainImage()}});">                   </a>
+                            <a
+                              href="{{route('andro.service.details', ['service' => $service->slug ])}}"
+                              class="block-20" style="background-image: url({{$service->mainImage()}});">
+                            </a>
                             <div class="text bg-white p-4">
                                 <h3 class="heading"><a href="{{route('andro.service.details', ['service' => $service->slug ])}}">{{$service->name}}</a></h3>
                                 <div class="d-flex align-items-center mt-4">

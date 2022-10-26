@@ -27,6 +27,6 @@ trait UsesUUID
 
 	public function mainImage()
 	{
-		return $this->images->first()->url; // if image is not available, return a default link from site config
+		return $this->images->first()['url']; // if image is not available, return a default link from site config
 	}
 }
